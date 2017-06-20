@@ -1,66 +1,45 @@
-<!-- <img src='imgs/horse2zebra.gif' align="right" width=384> 
+# Shared Latent Embedding based CycleGAN
 
-<br><br><br>
--->
-# CycleGAN
+Tensorflow implementation for learning an image-to-image translation **without** input-output pairs.
 
-Tensorflow implementation for learning an image-to-image translation **without** input-output pairs. (Not completed!)
-The method is proposed by [Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/) in 
-[Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networkssee](https://arxiv.org/pdf/1703.10593.pdf). 
+CycleGAN is proposed by [Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/) in 
+[Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networkssee](https://arxiv.org/pdf/1703.10593.pdf), and obviously Shared Latent Embedding based CycleGAN is proposed by us.
+
 For example:
 
 <img src="https://junyanz.github.io/CycleGAN/images/teaser_high_res.jpg" width="1000px"/>
 
-<!--
-## Applications
-### Monet Paintings to Photos
-<img src="imgs/painting2photo.jpg" width="1000px"/>
 
-### Collection Style Transfer
-<img src="imgs/photo2painting.jpg" width="1000px"/>
-
-### Object Transfiguration
-<img src="imgs/objects.jpg" width="1000px"/>
-
-### Season Transfer
-<img src="imgs/season.jpg" width="1000px"/>
-
-### Photo Enhancement: iPhone photo to DSLR photo
-<img src="imgs/photo_enhancement.jpg" width="1000px"/>
-
--->
-
-## Prerequisites
-- tensorflow r1.0 or higher version
-- numpy 1.11.0
-- scipy 0.17.0
-- pillow 3.3.0
+## Package Required
+- `tensorflow r1.0` or higher version
+- `numpy 1.11.0`
+- `scipy 0.17.0`
+- `pillow 3.3.0`
 
 ## Getting Started
 ### Installation
-- Install tensorflow from https://github.com/tensorflow/tensorflow
-- Clone this repo:
+- Install Tensorflow: https://github.com/tensorflow/tensorflow
+- Clone this repository:
 ```bash
-git clone https://github.com/xhujoy/CycleGAN-tensorflow
-cd CycleGAN-tensorflow
+git clone https://github.com/dhruvramani/Cycle-Embedding-GAN
+cd Cycle-Embedding-GAN
 ```
 
-### Train
+### Training
 - Download a dataset (e.g. zebra and horse images from ImageNet):
 ```bash
 bash ./download_dataset.sh horse2zebra
 ```
-- Train a model:
+- Train the model:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python main.py --dataset_dir=horse2zebra
 ```
-- Use tensorboard to visualize the training details:
+- Use TensorBoard to visualize the training details:
 ```bash
 tensorboard --logdir=./logs
 ```
 
-### Test
-- Finally, test the model:
+### Testing
 ```bash
 CUDA_VISIBLE_DEVICES=0 python main.py --dataset_dir=horse2zebra --phase=test --which_direction=AtoB
 ```
@@ -100,5 +79,6 @@ Our model does not work well when a test image looks unusual compared to trainin
 
 
 ## Reference
-- The torch implementation of CycleGAN, https://github.com/junyanz/CycleGAN
-- The tensorflow implementation of pix2pix, https://github.com/yenchenlin/pix2pix-tensorflow
+- The Tensorflow implementation of CycleGAN: https://github.com/xhujoy/CycleGAN-tensorflow
+- The Torch implementation of CycleGAN: https://github.com/junyanz/CycleGAN
+- The Tensorflow implementation of pix2pix: https://github.com/yenchenlin/pix2pix-tensorflow
