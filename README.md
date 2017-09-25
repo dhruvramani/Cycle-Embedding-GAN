@@ -1,4 +1,5 @@
 # Shared Latent Embedding based CycleGAN
+<small>Abandoned Project.</small><br>
 
 Tensorflow implementation for learning an image-to-image translation **without** input-output pairs.
 
